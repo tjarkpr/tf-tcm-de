@@ -4,10 +4,10 @@ from modules.decomposition.model_decomposer import ModelDecomposer
 
 
 class TCMDE():
-    __effect_explainer: EffectExplainer = None
-    __model_decomposer: ModelDecomposer = None
-    __seperate: Callable[[str], list[str]] = None
-    __convert: Callable[[str], list] = None
+    __effect_explainer: EffectExplainer
+    __model_decomposer: ModelDecomposer
+    __seperate: Callable[[str], list[str]]
+    __convert: Callable[[str], list]
 
     def __init__(
             self,

@@ -7,10 +7,10 @@ from modules.decomposition.model_decomposition import ModelDecomposition
 
 
 class ModelDecomposer():
-    __base_dataset: tf.data.Dataset = None
-    __base_model: tf.keras.Model = None
-    __effect_dataset: EffectDataset = None
-    __permutation_dataset: PermutationDataset = None
+    __base_dataset: tf.data.Dataset
+    __base_model: tf.keras.Model
+    __effect_dataset: EffectDataset
+    __permutation_dataset: tf.data.Dataset
 
     def __init__(
             self, 
@@ -21,7 +21,11 @@ class ModelDecomposer():
             ) -> None:
         self.__base_dataset = base_dataset
         self.__base_model = base_model
-        self.__permutation_dataset = PermutationDataset(separate, convert)
+        self.__permutation_dataset = PermutationDataset.from_dataset(
+            base_dataset,
+            separate,
+            convert
+            )
     
     def decompose(self) -> ModelDecomposition:
         return ModelDecomposition(self.__permutation_dataset, self.__effect_dataset)
