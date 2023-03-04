@@ -1,2 +1,2 @@
-# tf-model-lime-decomposition
-Decomposition of TensorFlow models into local interpretable model-agnostic explanations (LIME)
+# Text Classification Model Decision Explaination (TCM-DE)
+Decomposition of TensorFlow text classification models into local interpretable models to explain the base model decisions via decision rules.
